@@ -1,0 +1,117 @@
+﻿/* From uiverse.io by @bhaveshxrawat */
+.card {
+    width: 190px;
+    height: 254px;
+    background: #07182E;
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+    .card h2{
+        z-index: 1;
+        color: white;
+        font-size: 2em;
+    }
+
+    .card::before {
+        content: '';
+        position: absolute;
+        width: 100px;
+        background-image: linear-gradient(180deg, rgb(0, 255, 40), rgb(255, 48, 255));
+        height: 130%;
+        animation: rotBGimg 20s linear infinite;
+        transition: all 0.2s linear;
+    }
+
+
+@keyframes rotBGimg {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    background: #07182E;
+    inset: 5px;
+    border-radius: 15px;
+}
+
+
+h2{
+    text-align:center;
+}
+
+
+/* From uiverse.io by @gagan-gv */
+.spinner {
+    height: 50px;
+    width: max-content;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: monospace;
+    letter-spacing: 1em;
+    color: #f5f5f5;
+    filter: drop-shadow(0 0 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .spinner span {
+        animation: loading6454 6s ease infinite;
+    }
+
+        .spinner span:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+
+        .spinner span:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .spinner span:nth-child(4) {
+            animation-delay: 0.75s;
+        }
+
+        .spinner span:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+        .spinner span:nth-child(6) {
+            animation-delay: 1.25s;
+        }
+
+        .spinner span:nth-child(7) {
+            animation-delay: 1.5s;
+        }
+
+@keyframes loading6454 {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+body{
+    background-color:#505050;
+}
+
+.texto{
+    font-size:15px !important;
+    text-align:center;
+    color:white !important;
+}
+

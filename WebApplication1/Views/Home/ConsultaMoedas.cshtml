@@ -1,0 +1,182 @@
+﻿<html>
+<head>
+    <title>ViaCEP Webservice</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/css/teste.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Adicionando Javascript -->
+    <script>
+
+        $(document).ready(function() {
+
+            $('#divMoedas').hide();
+
+            let a = undefined;
+            //Quando o campo cep perde o foco.
+            $("#consultar").on("click", function() {
+
+                //Consulta o webservice viacep.com.br/
+                $.getJSON("https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,BTC-BRL,ARS-BRL,TWD-BRL", function(dados) {
+
+                    a = dados.USDBRL.high;
+
+                    $('#teste').text(dados.USDBRL.high);
+                    $('#teste2').text(dados.EURBRL.high);
+                    $('#teste3').text(dados.BTCBRL.high);
+                    $('#teste4').text(dados.ARSBRL.high);
+                    $('#teste5').text(dados.TWDBRL.high);
+
+                    $('#data').text(dados.USDBRL.create_date);
+                    $('#data2').text(dados.EURBRL.create_date);
+                    $('#data3').text(dados.BTCBRL.create_date);
+                    $('#data4').text(dados.ARSBRL.create_date);
+                    $('#data5').text(dados.TWDBRL.create_date);
+                    
+
+                    $('#divMoedas').show();
+                });
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-5 spinner">
+            <span>C</span>
+            <span>O</span>
+            <span>T</span>
+            <span>A</span>
+            <span>Ç</span>
+            <span>Ã</span>
+            <span>O</span>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center pt-5" id="divMoedas">
+        <div class="col-md-2">
+            <div class="row justify-content-md-center">
+                <div class="col-10 card">
+                    <h2>DOLAR</h2>
+                    <h2 id="teste">TESTE</h2>
+                    <h2 id="data" class="texto">TESTE</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-2 ">
+            <div class="row justify-content-md-center">
+                <div class="col-10 card">
+                    <h2>EURO</h2>
+                    <h2 id="teste2">TESTE</h2>
+                    <h2 id="data2" class="texto">TESTE</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-2 ">
+            <div class="row justify-content-md-center">
+                <div class="col-10 card">
+                    <h2>BITCOIN</h2>
+                    <h2 id="teste3">TESTE</h2>
+                    <h2 id="data3" class="texto">TESTE</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-2 ">
+            <div class="row justify-content-md-center">
+                <div class="col-10 card">
+                    <h2>PESO</h2>
+                    <h2 id="teste4">TESTE</h2>
+                    <h2 id="data4" class="texto">TESTE</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-2 ">
+            <div class="row justify-content-md-center">
+                <div class="col-10 card">
+                    <h2>DÓLAR TAIUANÊS</h2>
+                    <h2 id="teste5">TESTE</h2>
+                    <h2 id="data5" class="texto">TESTE</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-md-center pt-5">
+        <button class="col-md-2  align-content-center" id="consultar">
+            <span>Cotar</span>
+        </button>
+    </div>
+
+
+</body>
+
+<style>
+    button {
+        outline: none;
+        cursor: pointer;
+        border: none;
+        padding: 0.9rem 2rem;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        position: relative;
+        display: inline-block;
+        letter-spacing: 0.05rem;
+        font-weight: 700;
+        font-size: 17px;
+        border-radius: 500px;
+        overflow: hidden;
+        background: #66ff66;
+        color: ghostwhite;
+    }
+
+        button span {
+            position: relative;
+            z-index: 10;
+            transition: color 0.4s;
+        }
+
+        button:hover span {
+            color: black;
+        }
+
+        button::before,
+        button::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        button::before {
+            content: "";
+            background: #000;
+            width: 120%;
+            left: -10%;
+            transform: skew(30deg);
+            transition: transform 1s cubic-bezier(0.3, 1, 0.8, 1);
+        }
+
+        button:hover::before {
+            transform: translate3d(100%, 0, 0);
+        }
+
+</style>
+</html>
